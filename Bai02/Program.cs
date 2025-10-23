@@ -19,7 +19,7 @@ class Program
             }
             else
             {
-                Console.WriteLine("Đường dẫn không tồn tại. Vui lòng nhập lại!\n");
+                Console.WriteLine("Không tồn tại. Nhập lại!\n");
             }
         }
 
@@ -50,7 +50,7 @@ class Program
         }
         catch (UnauthorizedAccessException)
         {
-            Console.WriteLine("Lỗi: Bạn không có quyền truy cập vào thư mục này.");
+            Console.WriteLine("Không có quyền truy cập vào thư mục này.");
         }
         catch (Exception ex)
         {
