@@ -4,8 +4,6 @@ class Program
 {
     static void Main()
     {
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
-
         int month;
         int year;
 
@@ -14,13 +12,14 @@ class Program
             Console.Write("Enter month (1-12): ");
             string inputMonth = Console.ReadLine();
 
-            if (int.TryParse(inputMonth, out month) && month >= 1 && month <= 12)
+            if (int.TryParse(inputMonth, out month) 
+                && month >= 1 && month <= 12)
             {
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid month. Please enter a month between 1 and 12.");
+                Console.WriteLine("Please enter a valid month");
             }
         }
 
@@ -35,7 +34,7 @@ class Program
             }
             else
             {
-                Console.WriteLine("Invalid year. Please enter a valid year (e.g., 2025).");
+                Console.WriteLine("Please enter a valid year");
             }
         }
 
