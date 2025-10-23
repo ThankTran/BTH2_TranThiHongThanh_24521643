@@ -58,6 +58,22 @@ namespace Bai03
             Console.WriteLine();
         }
 
+        static void findrowMaxPrime(int m, int n, int[,] a)
+        {
+            int index = -1;
+            for (int i = 0; i < m; i++)
+            {
+                int primeCount = 0;
+                for (int j = 0; j < n; j++)
+                {
+                    if (IsPrime(a[i, j]))
+                        primeCount++;
+                }
+                if (primeCount > index)
+                    index = i;
+            }
+            Console.WriteLine($"Row with the most prime numbers is {index}");
+        }
         static void findAnyNumber(int m, int n, int[,] a, int x)
         {
             bool found = false;
@@ -89,6 +105,8 @@ namespace Bai03
             findAnyNumber(m, n, a, x);
             
             findPrime(m, n, a);
+
+            findrowMaxPrime(m, n, a);
         }
     }
 }
