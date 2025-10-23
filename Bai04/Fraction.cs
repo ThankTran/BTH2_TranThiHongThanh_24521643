@@ -33,6 +33,18 @@ namespace Bai04
             }
         }
 
+        public static int Compare(Fraction a, Fraction b)
+        {
+            long left = (long)a._numerator * b._denominator;
+            long right = (long)b._numerator * a._denominator;
+
+            if (left < right)
+                return -1;
+            if (left > right)
+                return 1;
+            return 0;
+        }
+
         public void Nhap()
         {
 
