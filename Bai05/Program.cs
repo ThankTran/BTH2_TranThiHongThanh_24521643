@@ -12,7 +12,8 @@ namespace Bai05
             company.Input();
             company.Output();
 
-            Console.WriteLine($"\nTotal Price of all Immovables: {company.TotalPrice():C}");
+            Console.WriteLine($"\nTotal Price of all Immovables: " +
+                $"{company.TotalPrice():C}");
 
             company.SearchByArea();
 

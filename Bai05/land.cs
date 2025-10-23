@@ -19,10 +19,5 @@ namespace Bai05
         {
             return price * area;
         }
-
-        
-
-
-       
     }
 }

@@ -14,7 +14,9 @@ namespace Bai05
 
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine($"\nEnter the type of immovable (1: land, 2: house, 3: apartment): ");
+                Console.WriteLine
+                ($"\nEnter the type of immovable (1: land, " +
+                                $"2: house, 3: apartment): ");
                 int type = int.Parse(Console.ReadLine());
 
                 switch (type)
@@ -60,10 +62,14 @@ namespace Bai05
 
         public void SearchByArea()
         {
-            Console.WriteLine("\nList of land with area greater than 100m2 or house with area greater than 60m2 and yearbuilt >=2019: ");
+            Console.WriteLine
+                ("\nList of land with area greater than 100m2 " +
+                "or house with area greater than 60m2 and yearbuilt >=2019: ");
             foreach (var x in im)
             {
-                if ((x is land && x.area > 100) || (x is house && x.area > 60 && x.Yearbuilt >= 2019))
+                if ((x is land && x.area > 100) 
+                    || (x is house && x.area > 60 
+                    && x.Yearbuilt >= 2019))
                 {
                     x.Output();
                 }
@@ -72,21 +78,24 @@ namespace Bai05
 
         public void SearchByCriteria()
         {
-            Console.WriteLine("\n=== Search House or Apartment by Criteria ===");
+            Console.WriteLine
+                ("\n=== Search House or Apartment by Criteria ===");
             Console.Write("Enter search address (partial match): ");
             string searchAddress = Console.ReadLine().Trim();
 
             Console.Write("Enter maximum total price (VND): ");
-            if (!double.TryParse(Console.ReadLine(), out double maxPrice))
+            if (!double.TryParse(Console.ReadLine(),
+                                out double maxPrice))
             {
-                Console.WriteLine("Invalid price entered. Setting max price to 0.");
+                Console.WriteLine("Invalid price entered.");
                 maxPrice = 0;
             }
 
             Console.Write("Enter minimum area (m2): ");
-            if (!double.TryParse(Console.ReadLine(), out double minArea))
+            if (!double.TryParse(Console.ReadLine(), 
+                                out double minArea))
             {
-                Console.WriteLine("Invalid area entered. Setting min area to 0.");
+                Console.WriteLine("Invalid area entered.");
                 minArea = 0;
             }
 
@@ -97,10 +106,12 @@ namespace Bai05
             {
                 if (x is house || x is apartment)
                 {
-                    bool addressMatch = string.IsNullOrEmpty(searchAddress) ||
-                                        x.address.ToLower().Contains(searchAddressLower);
+                    bool addressMatch=
+                        string.IsNullOrEmpty(searchAddress) 
+            || x.address.ToLower().Contains(searchAddressLower);
 
-                    bool priceMatch = maxPrice <= 0 || x.TotalPrice() <= maxPrice;
+                    bool priceMatch = maxPrice <= 0 
+                        || x.TotalPrice() <= maxPrice;
 
                     bool areaMatch = x.area >= minArea;
 
@@ -114,7 +125,8 @@ namespace Bai05
 
             if (!found)
             {
-                Console.WriteLine("No House or Apartment found matching the criteria.");
+                Console.WriteLine("No House or Apartment " +
+                    "found matching the criteria.");
             }
         }
     }
