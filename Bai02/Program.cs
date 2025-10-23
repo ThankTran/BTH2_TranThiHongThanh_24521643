@@ -50,7 +50,7 @@ class Program
         }
         catch (UnauthorizedAccessException)
         {
-            Console.WriteLine("Không có quyền truy cập vào thư mục này.");
+            Console.WriteLine("Không có quyền truy cập thư mục");
         }
         catch (Exception ex)
         {
