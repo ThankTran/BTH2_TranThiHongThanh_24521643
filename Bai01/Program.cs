@@ -6,39 +6,62 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        Console.Write("Enter month: ");
-        int inputMonth = int.Parse(Console.ReadLine());
+        int month;
+        int year;
+
         while (true)
         {
-            if (!int.TryParse(inputMonth, out month) || month < 1 || month > 12 )
+            Console.Write("Enter month (1-12): ");
+            string inputMonth = Console.ReadLine();
+
+            if (int.TryParse(inputMonth, out month) && month >= 1 && month <= 12)
             {
-                Console.Write("Invalid month. Please enter a month between 1 and 12: ");
-                month = int.Parse(Console.ReadLine());
+                break;
             }
-            else break;
+            else
+            {
+                Console.WriteLine("Invalid month. Please enter a month between 1 and 12.");
+            }
         }
 
-        Console.Write("Nhập năm: ");
-        int inputYear = int.Parse(Console.ReadLine());
+        while (true)
+        {
+            Console.Write("Enter year: ");
+            string inputYear = Console.ReadLine();
+
+            if (int.TryParse(inputYear, out year) && year > 0)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid year. Please enter a valid year (e.g., 2025).");
+            }
+        }
 
         Console.WriteLine($"\nMonth: {month:D2}/{year}");
+        Console.WriteLine();
         Console.WriteLine("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
+        
 
         DateTime firstDay = new DateTime(year, month, 1);
+
         int daysInMonth = DateTime.DaysInMonth(year, month);
 
-        int startDay = (int)firstDay.DayOfWeek;
+        int startDayOfWeek = (int)firstDay.DayOfWeek;
 
-        for (int i = 0; i < startDay; i++)
+        for (int i = 0; i < startDayOfWeek; i++)
             Console.Write("\t");
 
         for (int day = 1; day <= daysInMonth; day++)
         {
             Console.Write(day + "\t");
-            startDay++;
-            if (startDay == 7)
+
+            startDayOfWeek++;
+
+            if (startDayOfWeek == 7)
             {
-                startDay = 0;
+                startDayOfWeek = 0;
                 Console.WriteLine();
             }
         }
