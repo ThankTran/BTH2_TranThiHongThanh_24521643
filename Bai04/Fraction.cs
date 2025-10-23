@@ -69,7 +69,6 @@ namespace Bai04
                 try
                 {
                     Console.Write("Enter the denomiator: ");
-                    int _denominator;
                     _denominator = int.Parse(Console.ReadLine()!);
                     if (_denominator == 0)
                     {
