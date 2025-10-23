@@ -102,6 +102,7 @@ namespace Bai03
             Nhap(ref m, ref n, out a);
 
             Xuat(m, n, a);
+            Console.WriteLine("Enter a number to search:");
             int x = int.Parse(Console.ReadLine());
             findAnyNumber(m, n, a, x);
             
