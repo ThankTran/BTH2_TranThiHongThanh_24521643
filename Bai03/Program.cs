@@ -72,7 +72,8 @@ namespace Bai03
                 if (primeCount > index)
                     index = i;
             }
-            Console.WriteLine($"Row with the most prime numbers is {index}");
+            Console.WriteLine
+                ($"Row with the most prime numbers is {index}");
         }
         static void findAnyNumber(int m, int n, int[,] a, int x)
         {

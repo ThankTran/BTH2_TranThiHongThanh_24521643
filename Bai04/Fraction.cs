@@ -23,7 +23,8 @@ namespace Bai04
 
         private void Simplify()
         {
-            int gcd = GreatestCommonDivisor(_numerator, _denominator);
+            int 
+            gcd = GreatestCommonDivisor(_numerator, _denominator);
             _numerator /= gcd;
             _denominator /= gcd;
             if (_denominator < 0)
@@ -57,7 +58,8 @@ namespace Bai04
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Error! Numerator must be a number. Please enter again.");
+                    Console.WriteLine
+                        ("Numerator must be a number. Enter again.");
                     continue;
                 }
                 break;
@@ -72,14 +74,16 @@ namespace Bai04
                     _denominator = int.Parse(Console.ReadLine()!);
                     if (_denominator == 0)
                     {
-                        Console.WriteLine("Error! Denominator cannot be zero. Please enter again.");
+                        Console.WriteLine
+                        ("Denominator cannot be zero. Enter again.");
                         continue;
                     }
                     break;
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Error! Denominator must be a number. Please enter again.");
+                    Console.WriteLine
+                    ("Denominator must be a number. Enter again.");
                 }
             }
             //break;
@@ -89,19 +93,22 @@ namespace Bai04
         }
         private static int GreatestCommonDivisor(int a, int b)
         {
-            return Math.Abs((int)BigInteger.GreatestCommonDivisor(a, b));
+            return 
+            Math.Abs((int)BigInteger.GreatestCommonDivisor(a, b));
         }
 
         public static Fraction operator +(Fraction a, Fraction b)
         {
-            int numerator = a._numerator * b._denominator + b._numerator * a._denominator;
+            int numerator = a._numerator * b._denominator 
+                + b._numerator * a._denominator;
             int denominator = a._denominator * b._denominator;
             return new Fraction(numerator, denominator);
         }
 
         public static Fraction operator -(Fraction a, Fraction b)
         {
-            int numerator = a._numerator * b._denominator - b._numerator * a._denominator;
+            int numerator = a._numerator * b._denominator 
+                - b._numerator * a._denominator;
             int denominator = a._denominator * b._denominator;
             return new Fraction(numerator, denominator);
         }
@@ -116,7 +123,8 @@ namespace Bai04
         public static Fraction operator /(Fraction a, Fraction b)
         {
             if (b._numerator == 0)
-                throw new DivideByZeroException("Cannot divide by a number of dials with zero");
+                throw new DivideByZeroException
+                    ("Cannot divide by a number of dials with zero");
             int numerator = a._numerator * b._denominator;
             int denominator = a._denominator * b._numerator;
             return new Fraction(numerator, denominator);
